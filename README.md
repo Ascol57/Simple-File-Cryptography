@@ -52,7 +52,7 @@ python main.py -d img.jpg file_out
 
 ### 🙏 Acknowledgements
 
-> Made with ❤️ by Ascol57
+> ![Ascol57](https://img.shields.io/badge/Made_with_%E2%9D%A4%EF%B8%8F_by-Ascol-red?style=flat&logo=github)
 
 -----
 
@@ -101,4 +101,4 @@ python main.py -d img.jpg file_out
 
 ### 🙏 Remerciements
 
-> Fait avec ❤️ par Ascol57
+> ![Ascol57](https://img.shields.io/badge/Fait_avec_%E2%9D%A4%EF%B8%8F_par-Ascol-red?style=flat&logo=github)
