@@ -1,6 +1,7 @@
-# [NOM DE VOTRE PROJET]
+# Simple File Cryptography
 
-> [Courte description ou slogan du projet en une ligne]
+> Encrypt and decrypt my files easily
+> Crypter et décrypter mes fichiers simplement
 
 ---
 
@@ -16,33 +17,41 @@
 
 ### 📖 About / History
 
-[PLACEHOLDER: A brief history of the project. Why did you build it? What problem does it solve? Keep it short and simple.]
+I created this project to securely transfer files containing lists of passwords and API keys over networks that are not necessarily secure (email, Discord, etc.). The file, once encrypted, is included in an innocent-looking jpg image.
 
 ### 🔧 Installation
 
-[PLACEHOLDER: Explain how to install the project. Be very clear.]
+General installation :
 
 ```bash
-# Example: Clone the repository
-git clone [https://github.com/votre-nom/](https://github.com/votre-nom/)[NOM-DU-PROJET].git
-
-# Example: Install dependencies
-cd [NOM-DU-PROJET]
-npm install
+git clone https://github.com/Ascol57/Simple-File-Cryptography.git
+cd Simple-File-Cryptography
+pip install cryptography
 ````
 
 ### 🚀 Usage
 
-[PLACEHOLDER: Explain how to use your project after installation. Provide code examples if possible.]
+Encrypting a file:
 
 ```bash
-# Example: Run the project
-npm start
+python main.py -g -e file1 img.jpg
+```
+
+Without recreating the key.crt file:
+
+```bash
+python main.py -e file_in img.jpg
+```
+
+Decrypting a file:
+
+```bash
+python main.py -d img.jpg file_out
 ```
 
 ### 🙏 Acknowledgements
 
-> Made with ❤️ by Ascol 57
+> Made with ❤️ by Ascol57
 
 -----
 
@@ -54,30 +63,38 @@ npm start
 
 ### 📖 À propos / Histoire
 
-[PLACEHOLDER : Une brève histoire du projet. Pourquoi l'avez-vous créé ? Quel problème résout-il ? Restez simple et concis.]
+J'ai fait ce projet pour transférer des fichiers contenants des listes de mots de passe, des clés d'API de façon sécurisé sur des réseaux pas forcements surs (mail, discord...). Le fichier, une fois crypté, est inclus dans une image jpg innocente.
 
 ### 🔧 Installation
 
-[PLACEHOLDER : Expliquez comment installer le projet. Soyez très clair.]
+Installation en général :
 
 ```bash
-# Exemple : Cloner le dépôt
-git clone [https://github.com/votre-nom/](https://github.com/votre-nom/)[NOM-DU-PROJET].git
-
-# Exemple : Installer les dépendances
-cd [NOM-DU-PROJET]
-npm install
+git clone https://github.com/Ascol57/Simple-File-Cryptography.git
+cd Simple-File-Cryptography
+pip install cryptography
 ```
 
 ### 🚀 Utilisation
 
-[PLACEHOLDER : Expliquez comment utiliser le projet après l'installation. Fournissez des exemples de code si possible.]
+Crypter un fichier :
 
 ```bash
-# Exemple : Lancer le projet
-npm start
+python main.py -g -e file1 img.jpg
+```
+
+Sans recréer le key.crt :
+
+```bash
+python main.py -e file_in img.jpg
+```
+
+Décrypter un fichier :
+
+```bash
+python main.py -d img.jpg file_out
 ```
 
 ### 🙏 Remerciements
 
-> Fait avec ❤️ par Ascol 57
+> Fait avec ❤️ par Ascol57
