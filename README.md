@@ -57,7 +57,10 @@ python main.py -d img.jpg file_out
 
 <br>
 <br>
----
+<br>
+<br>
+
+-----
 
 ## 🇫🇷 Français
 
