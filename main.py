@@ -27,12 +27,34 @@ def decrypt(filename, key, file2):
     f = Fernet(key)
     with open(filename, "rb") as file, open(file2, "wb") as out:
         content = file.read()
-        offset = content.index(bytes.fromhex('FFD9'))
-        file.seek(offset+2)
-        # read the encrypted data
-        encrypted_data = file.read()
+        # Find the last JPEG EOI marker (0xFFD9). Some JPEGs can contain
+        # the byte sequence earlier, so use rfind to get the final marker.
+        marker = bytes.fromhex('FFD9')
+        offset = content.rfind(marker)
+        if offset == -1:
+            # No marker found — assume the file is just the encrypted token
+            encrypted_data = content
+        else:
+            # Encrypted payload should be everything after the final EOI
+            encrypted_data = content[offset+2:]
+        # Clean common accidental whitespace/newlines
+        encrypted_data = encrypted_data.strip()
+        # If multiple tokens were appended we may have several Fernet tokens
+        # concatenated. Fernet tokens produced by this script start with
+        # the ASCII prefix 'gAAAA'. Prefer the last token (most-recent)
+        # so that repeated appends decrypt correctly.
+        token_prefix = b'gAAAA'
+        idx = encrypted_data.rfind(token_prefix)
+        if idx != -1:
+            encrypted_data = encrypted_data[idx:]
         # decrypt data
-        decrypted_data = f.decrypt(encrypted_data)
+        try:
+            decrypted_data = f.decrypt(encrypted_data)
+        except Exception as exc:
+            # Surface a clearer error for common failure modes
+            raise type(exc)(
+                "Failed to decrypt data — the token may be corrupted or the wrong key was used."
+            ) from exc
         # write the original file
         out.write(decrypted_data)
         print(decrypted_data)
@@ -66,8 +88,14 @@ if __name__ == "__main__":
     if encrypt_ and decrypt_:
         raise TypeError("Please specify whether you want to encrypt the file or decrypt it.")
     elif encrypt_:
+        # ensure the output file for encryption ends with .jpg
+        if not file2.lower().endswith('.jpg'):
+            raise TypeError("When encrypting the output file (file2) must end with .jpg")
         encrypt(file, key, file2)
     elif decrypt_:
+        # ensure the input file for decryption is a .jpg
+        if not file.lower().endswith('.jpg'):
+            raise TypeError("When decrypting the input file (file) must end with .jpg")
         decrypt(file, key, file2)
     else:
         raise TypeError("Please specify whether you want to encrypt the file or decrypt it.")
