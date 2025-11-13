@@ -5,9 +5,9 @@
 ---
 
 <p align="center">
-  <strong><a href="#-english">English</a></strong>
+  <strong><a href="#-english-">English</a></strong>
   &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <strong><a href="#-français">Français</a></strong>
+  <strong><a href="#-français-">Français</a></strong>
 </p>
 
 ---
