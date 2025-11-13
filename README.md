@@ -5,14 +5,14 @@
 ---
 
 <p align="center">
-  <strong><a href="#-english-">English</a></strong>
+  <strong><a href="#-english">English</a></strong>
   &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <strong><a href="#-français-">Français</a></strong>
+  <strong><a href="#-français">Français</a></strong>
 </p>
 
 ---
 
-## 🇬🇧 English <a name="english"></a>
+## 🇬🇧 English
 
 ### 📖 About / History
 
@@ -50,7 +50,7 @@ npm start
 <br>
 ---
 
-## 🇫🇷 Français \<a name="francais"\>\</a\>
+## 🇫🇷 Français
 
 ### 📖 À propos / Histoire
 
